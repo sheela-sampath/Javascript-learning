@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Velkommen til HistorieGenerator</h1>
+    <input type="text" id = "navn" placeholder="SKRIV DIN NAV">
+    <select name="GENDER" id="Kjønn">
+        <option value="Jente">Jenta</option>
+        <option value="Gutt">Gutt</option>
+        <option value="Kvinne">Kvinne</option>
+        <option value="Mann">Mann</option>
+    </select>
+    <input type="number" id="år" placeholder="Fødelsår">
+    <button onclick="histori()">Generate</button>
+    <p id="output"></p>
+</body>
+<script>
+    function histori()
+    {
+        let navn = document.getElementById("navn").value;
+        let Kjønn = document.getElementById("Kjønn").value;
+        let år = document.getElementById("år").value;
+
+        let svar = `Det var en gang en ${Kjønn} som het ${navn}, og var født i ${år}. Denne personen er nå  ${2024 - år} år, og har ${100 - (2024 - år)} år igjen til 100-års-dagen sin!` 
+
+            document.getElementById("output").innerText = svar;
+}
+</script>
+</html>
