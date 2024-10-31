@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tippeprogram for Fotballkamp</title>
+</head>
+<body>
+
+<h2>Tippeprogram for Fotballkamp</h2>
+
+<input type="text" id="tipsInput" placeholder="Skriv H, U, eller B">
+<button onclick="sjekkTips()">Send inn</button>
+
+<p id="resultat"></p>
+
+<script>
+   
+    function sjekkTips() {
+      
+        let tips = document.getElementById("tipsInput").value.toUppercase();
+        let resultat = document.getElementById("resultat");
+
+        switch (tips) {
+            case "H":
+                resultat.textContent = "Hjemme";
+                break;
+            case "U":
+                resultat.textContent = "Uavgjort";
+                break;
+            case "B":
+                resultat.textContent = "Borte";
+                break;
+            default:
+                resultat.textContent = "Ugyldig inndata. Vennligst skriv inn 'H' for Hjemme, 'U' for Uavgjort, eller 'B' for Borte.";
+        }
+    }
+</script>
+
+</body>
+</html>

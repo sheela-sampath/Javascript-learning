@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI-kalkulator</title>
+</head>
+<body>
+
+<h2>BMI-kalkulator</h2>
+<p>Skriv inn vekten din i kg og høyden din i meter:</p>
+
+<label for="vekt">Vekt (kg): </label>
+<input type="text" id="vekt" placeholder="Skriv ditt vekt i kg"><br><br>
+
+<label for="hoyde">Høyde (m): </label>
+<input type="text" id="hoyde" placeholder="Skriv ditt høyt i m"><br><br>
+
+<button onclick="beregnBMI()">Beregn BMI</button>
+
+<p id="resultat"></p>
+
+<script>
+  
+    function beregnBMI() {
+
+        let vekt = parseFloat(document.getElementById("vekt").value);
+        let hoyde = parseFloat(document.getElementById("hoyde").value);
+        let resultat = document.getElementById("resultat");
+
+        if (isNaN(vekt) || isNaN(hoyde) || vekt <= 0 || hoyde <= 0) {
+            resultat.textContent = "Vennligst skriv inn gyldige tall for både vekt og høyde.";
+            return;
+        }
+
+        
+        let bmi = vekt / (hoyde * hoyde);
+        bmi = bmi.toFixed(1); 
+
+     
+        let bmiklasse;
+        if (bmi < 18.5) {
+            bmiklasse = "Lett undervekt";
+        } else if (bmi >= 18.5 && bmi <= 24.9) {
+            bmiklasse = "Normalvekt";
+        } else if (bmi >= 25 && bmi <= 29.9) {
+            bmiklasse = "Lett overvekt";
+        } else {
+            bmiklasse = "Fedme";
+        }
+
+        
+        resultat.textContent = `Din BMI er ${bmi}. Dette klassifiseres som ${bmiklasse}.`;
+    }
+</script>
+
+</body>
+</html>
